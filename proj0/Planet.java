@@ -1,5 +1,5 @@
 public class Planet{
-    public static final double G = 6.67e-11;  // gravtity constant
+    private static final double G = 6.67e-11;  // gravtity constant
     public double xxPos;   //current x position
     public double yyPos;   //current y position
     public double xxVel;   //current velocity in the x direction
