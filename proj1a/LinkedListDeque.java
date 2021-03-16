@@ -3,9 +3,9 @@ public class LinkedListDeque<T> {
     private int listSize;
     /** The item in the list. */
     private class StuffNode {
-        public StuffNode previous;  //points to the previous node
-        public StuffNode next;    //points to the next node
-        public T stuff;
+        private StuffNode previous;  //points to the previous node
+        private StuffNode next;    //points to the next node
+        private T stuff;
     }
     private StuffNode sentinel;
     /** Create an empty list. */
@@ -18,7 +18,7 @@ public class LinkedListDeque<T> {
 
     /** Add an item of type T to the front of the deque. */
     public void addFirst(T item) {
-        listSize ++;
+        listSize++;
         StuffNode node = new StuffNode();
         node.stuff = item;
         node.next = sentinel.next;
@@ -29,7 +29,7 @@ public class LinkedListDeque<T> {
 
     /** Add an item of type T to the back of the deque. */
     public void addLast(T item) {
-        listSize ++;
+        listSize++;
         StuffNode node = new StuffNode();
         node.stuff = item;
         node.previous = sentinel.previous;
@@ -39,12 +39,8 @@ public class LinkedListDeque<T> {
     }
 
     /** Returns true if deque is empty, false otherwise. */
-    public boolean isEmpty(){
-        if (listSize == 0) {
-            return true;
-        }else {
-            return false;
-        }
+    public boolean isEmpty() {
+        return listSize == 0;
     }
 
     /**Returns the number of items in the deque. */
@@ -76,7 +72,7 @@ public class LinkedListDeque<T> {
         T item = sentinel.next.stuff;
         sentinel.next = sentinel.next.next;
         sentinel.next.previous = sentinel;
-        listSize --;
+        listSize--;
         return item;
     }
 
@@ -90,7 +86,7 @@ public class LinkedListDeque<T> {
         T item = sentinel.previous.stuff;
         sentinel.previous = sentinel.previous.previous;
         sentinel.previous.next = sentinel;
-        listSize --;
+        listSize--;
         return item;
     }
     /** Get the item at the given index, where 0 is the front.
@@ -102,7 +98,7 @@ public class LinkedListDeque<T> {
             return null;
         }
         StuffNode ptr = sentinel.next;
-        for (int i = 0; i < index ; i++) {
+        for (int i = 0; i < index; i++) {
             ptr = ptr.next;
         }
         return ptr.stuff;
@@ -114,7 +110,7 @@ public class LinkedListDeque<T> {
             return null;
         }
 
-        return getRecursive(index,sentinel.next);
+        return getRecursive(index, sentinel.next);
     }
 
     /** Helper method, return the item at the position from start. */
@@ -122,7 +118,7 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return start.stuff;
         } else {
-            return getRecursive(index-1,start.next);
+            return getRecursive(index - 1, start.next);
         }
     }
 }

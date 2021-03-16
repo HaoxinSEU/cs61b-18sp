@@ -1,4 +1,3 @@
-import java.util.stream.StreamSupport;
 
 /** Performs some basic linked list tests. */
 public class LinkedListDequeTest {
@@ -111,4 +110,4 @@ public class LinkedListDequeTest {
 		//addRemoveTest();
 		addGetTest();
 	}
-} 
+}
